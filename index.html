@@ -7,13 +7,19 @@
     <style type="text/css">
         
         p {
-            font-family: "Times New Roman";
+            font-family: "Times New Roman", Times, serif;
         }
         a {
             color: #003594;
         }
         li {
+            width: 100%;
             display: inline-block;
+        }
+        li::before {
+            content:"";
+            display: list-item;
+            position: absolute;
         }
         img {
             display: block;
@@ -32,18 +38,18 @@
 
         h1 {
             text-align: center;
-            font-family: "Times New Roman";
+            font-family: "Times New Roman", Times, serif;
         }
         h2 {
             font-size: 20px;
             line-height: 1.2;
             padding: auto;
             color: #003594;
-            font-family: "Times New Roman";
+            font-family: "Times New Roman", Times, serif;
         }
         h3 {
             line-height: 1.2;
-            font-family: "Times New Roman";
+            font-family: "Times New Roman", Times, serif;
         }
     </style>
 </head>
@@ -79,10 +85,10 @@
 
     <div>
         <h2>Education:</h2>
-        <ul style="margin-top: 0px;"></ul>
-            <li>2018 - 2022: B.E. in Information Security <span style="float: right;"> Shanghai Jiao Tong University</span></li>
-            <li>2022 - 2024: M.S. in Information Science <span style="float: right;"> University of Pittsburgh</span></li>
-            <li>2024 - 2029: Ph.D. in Information Science <span style="float: right;"> University of Pittsburgh</span></li>
+        <ul style="margin-top: 0px;">
+            <li >2018 - 2022: B.E. in Information Security <span style="float: right;">Shanghai Jiao Tong University</span></li>
+            <li>2022 - 2024: M.S. in Information Science <span style="float: right;">University of Pittsburgh</span></li>
+            <li>2024 - 2029: Ph.D. in Information Science <span style="float: right;">University of Pittsburgh</span></li>
         </ul>
     </div>
 
@@ -136,9 +142,12 @@
 
     <div><hr>
         <a href="https://lfdsstudies.substack.com/"><img src="assets/001.jpg" width="47.6px" height="47.6px" style="float: left; margin-right: 10px; pointer-events: inherit;"></a>
-        <p style="margin-top: 0px;">
-            <em>"Le mana fuit. Réinventons la magie."</em><br>
-            Tiqqun (1999), De l'économie considérée comme magie noire.
+        <p style="margin-top: 0px; margin-left: 57.6px;">
+            <em>"Schlage die Trommel und fürchte dich nicht,<br>
+                &nbsp;und küsse die Marketenderin!<br>
+                &nbsp;Das ist die ganze Wissenschaft,<br>
+                &nbsp;das ist der Bücher tiefster Sinn."</em><br>
+                &nbsp;&mdash; Heinrich Heine, <em>Doktrin</em>.
         </p>
     </div>
 </body>
