@@ -1,0 +1,63 @@
+/* Background */
+html {
+    background-color: lightgray;
+}
+
+/* Links */
+a {
+    color: #003594;
+}
+.cite {
+    color: #B87333;
+}
+.code {
+    color: #141B4D;
+}
+.none {
+    color: #75787B;
+}
+
+/* List Items */
+li {
+    width: 100%;
+    display: inline-block;
+}
+li::before {
+    content:"";
+    display: list-item;
+    position: absolute;
+}
+
+/* Images */
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    pointer-events: none;
+}
+
+/* Texts */
+body {
+    margin: 10px auto;
+    max-width: 650px;
+    line-height: 1.4;
+    font-size: 17px;
+    padding: 0 10px;
+    text-align: justify;
+    font-family: "Times New Roman", Times, serif;
+}
+
+/* Headers */
+h1 {
+    text-align: center;
+}
+h2 {
+    font-size: 20px;
+    line-height: 1.2;
+    padding: auto;
+    color: #003594;
+}
+h3 {
+    line-height: 1.2;
+}
+
