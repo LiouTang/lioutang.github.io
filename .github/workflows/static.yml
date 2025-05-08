@@ -31,6 +31,31 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+  
+      - name: Generate sitemap.xml
+        run: |
+          SITE_URL="https://lioutang.github.io"
+          DATE=$(date -u +%Y-%m-%d)
+          cat <<EOF > sitemap.xml
+          <?xml version="1.0" encoding="UTF-8"?>
+          <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+            <url>
+              <loc>${SITE_URL}/</loc>
+              <lastmod>${DATE}</lastmod>
+              <priority>1.0</priority>
+            </url>
+          </urlset>
+          EOF
+
+      - name: Generate robots.txt
+        run: |
+          SITE_URL="https://lioutang.github.io"
+          cat <<EOF > robots.txt
+          User-agent: *
+          Allow: /
+          Sitemap: ${SITE_URL}/sitemap.xml
+          EOF
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
