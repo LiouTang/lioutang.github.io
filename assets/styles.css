@@ -1,6 +1,6 @@
 /* Background */
 html {
-    background-color: lightgray;
+    background-color: #DBEEFF;
 }
 
 /* Links */
@@ -8,10 +8,10 @@ a {
     color: #003594;
 }
 .cite {
-    color: #B87333;
+    color: #F7911E;
 }
 .code {
-    color: #141B4D;
+    color: #FF5B45;
 }
 .none {
     color: #75787B;
