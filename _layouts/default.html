@@ -14,10 +14,38 @@
 {{ content }}
     <script>
         const navigation = document.querySelector('.site-nav');
+        const navigationLinks = navigation.querySelector('.site-nav-links');
+        const navigationToggle = navigation.querySelector('.site-nav-toggle');
         const updateNavigationHeight = () => {
             document.documentElement.style.setProperty('--site-nav-height', `${navigation.getBoundingClientRect().height}px`);
         };
-        updateNavigationHeight();
+        const closeNavigation = () => {
+            navigation.classList.remove('is-open');
+            navigationToggle.setAttribute('aria-expanded', 'false');
+            updateNavigationHeight();
+        };
+        const updateNavigationLayout = () => {
+            navigation.classList.remove('is-collapsed');
+            navigation.classList.toggle('is-collapsed', navigationLinks.scrollWidth > navigationLinks.clientWidth);
+            if (!navigation.classList.contains('is-collapsed')) closeNavigation();
+            updateNavigationHeight();
+        };
+        navigationToggle.addEventListener('click', () => {
+            const isOpen = navigation.classList.toggle('is-open');
+            navigationToggle.setAttribute('aria-expanded', String(isOpen));
+            updateNavigationHeight();
+        });
+        navigationLinks.addEventListener('click', event => {
+            if (event.target.closest('a')) closeNavigation();
+        });
+        navigation.addEventListener('keydown', event => {
+            if (event.key === 'Escape' && navigation.classList.contains('is-open')) {
+                closeNavigation();
+                navigationToggle.focus();
+            }
+        });
+        updateNavigationLayout();
+        window.addEventListener('resize', updateNavigationLayout);
         new ResizeObserver(updateNavigationHeight).observe(navigation);
 
         document.querySelectorAll('a').forEach(anchor => {
