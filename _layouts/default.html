@@ -1,0 +1,32 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ page.title | default: site.title | escape }}</title>
+    <link rel="stylesheet" href="{{ '/assets/styles.css' | relative_url }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    
+</head>
+
+<body>
+{% include navbar.html %}
+{{ content }}
+    <script>
+        const navigation = document.querySelector('.site-nav');
+        const updateNavigationHeight = () => {
+            document.documentElement.style.setProperty('--site-nav-height', `${navigation.getBoundingClientRect().height}px`);
+        };
+        updateNavigationHeight();
+        new ResizeObserver(updateNavigationHeight).observe(navigation);
+
+        document.querySelectorAll('a').forEach(anchor => {
+            if (anchor.hostname !== window.location.hostname) {
+                anchor.target = '_blank';
+                anchor.rel = 'noopener noreferrer';
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,8 @@
+title: Liou Tang | University of Pittsburgh
+url: "https://lioutang.github.io"
+baseurl: ""
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
